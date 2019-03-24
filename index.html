@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <!-- browser fav icon and title bar info -->
+    <link rel="icon" href="assets/images/BreakingBad_icon.jpg" alt="Heisenberg head">
+    <title>Trivia | Breaking Bad Edition</title>
+
+    <!-- style sheets -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
+
+    <!-- Link to the jQuery library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- fonts --> 
+    <link href="https://fonts.googleapis.com/css?family=Arimo:400,700|Neuton:400,700,800" rel="stylesheet">
+    
+</head>
+
+<body>
+    <div class="row">
+        <div class=col-6>
+            <!-- scoreboard -->
+            <div id="scoreboard" class="container">
+                <p class="playerScores">Right: <span id="wins">0</span></p>
+                <p class="playerScores">Wrong: <span id="losses">0</span></p> 
+                <p class="playerScores">Missed: <span id="missed">0</span></p>                           
+            </div>
+        </div>
+
+        <!-- timer -->
+        <div class=col-6>
+            <div id="gameTimer" class="container">
+                <p class="playerScores">TIMER: <span id="domTimer">0</span></p></p> 
+            </div>
+        </div>
+    </div>
+
+    <!-- game instructions & question/answer jumbotron to disappear on click of 'start' -->
+    <div id="gameContainer" class="jumbotron">
+        <div class="aboutGame">
+            <h1 class="display-4">About the Game</h1>
+                <p class="lead">
+                    There are a total of 20 questions. After you click start, you will have 30 seconds to answer each question. If you don't answer in time, the game will automatically move on to the next question. The above scores will update after each question. Some content may not be suitable for all audiences. May portray foul language and/or violence.
+                </p>
+            <hr class="my-4"/>
+            <a id="startBtn" class="btn btn-primary btn-lg" role="button">Start</a>
+        </div>
+        <div class="QAcontent">
+            <div class="domQuestion">                
+            </div>
+            <div class="domAnswer1 answer"></div>
+            <div class="domAnswer2 answer"></div>
+            <div class="domAnswer3 answer"></div>
+            <div class="domAnswer4 answer"></div>
+        </div>    
+    </div>
+    
+
+
+    <!-- alt setup 1 -->
+    <!-- <div class="container">
+        <div class="jumbotron">
+            <h1>Trivia Game</h1>
+                <div class="btnContainer">
+                        <button type="button" class="btn btn-default btn-lg btn-primary startBtn">START</button>
+                </div>
+        </div>
+    </div> -->
+    <!-- end alt setup 1 -->
+
+
+    <!-- alt setup 2 -->
+    <!-- <div id="quizContainer" class="container">
+        <div class="title">Computer Quiz</div>
+        <div id="question" class="question"></div>
+        <label class="option"><input type="button" name="option" value="1"/> <span id="opt1"></span></label>
+        <label class="option"><input type="button" name="option" value="2"/> <span id="opt2"></span></label>
+        <label class="option"><input type="button" name="option" value="3"/> <span id="opt3"></span></label>
+        <label class="option"><input type="button" name="option" value="4"/> <span id="opt4"></span></label>
+        <button id="nextButton" class="next-btn" onclick="loadNextQuestion();">Next Question</button>
+    </div>
+    <div id="result" class="container result" style="display:none;"></div> -->
+    <!-- end alt setup 2-->
+    
+        <!-- special div related to footer - DO NOT MOVE! -->
+        <!-- <div class="push"></div> -->
+        <!-- end special div -->
+        
+    <!-- </div>  -->
+    
+    <!-- footer -->
+    <!-- <footer>
+        <div class="container">
+            &copy; 2019 Lori Orzechowski
+        </div>
+    </footer> -->
+
+    <!-- JavaScript for Bootstrap-->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" 
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" 
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" 
+        crossorigin="anonymous"></script> 
+    <!-- Trivia Game JavaScript-->    
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
+
+</body>
+</html>

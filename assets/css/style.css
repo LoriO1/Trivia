@@ -1,0 +1,363 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    /* temporary border to better see work in progress
+    border: 1px solid black; */
+  }
+
+/* BACKGROUND & BODY */
+
+body {
+    background-image: url("../images/BB_bg6.png");
+    background-repeat: no-repeat;
+    background-size: 100vw;
+    background-color: #cccccc;
+    color: #ffffff;
+    font-family: 'Arimo', sans-serif;
+    font-size: 30px;
+    line-height: 30px; 
+}
+
+/* HEADER */
+h1, h2, h3 {
+    font-family: 'Neuton', serif;
+    font-weight: bold;
+    padding: 0px 0px 0px 0px;
+}
+
+/* SCOREBOARD */
+#scoreboard {
+  padding: 0px 0px 0px 0px;
+  margin-top: 25%;
+  margin-left: 50%;
+}
+
+#gameTimer {
+  margin-top: 25%;
+  padding: 0px 0px 0px 0px;
+}
+
+.playerScores {
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 25px;
+  color: #EE3D96;
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+}
+
+
+
+
+/* GAME INSTRUCTIONS & QUESTION/ANSWER JUMBOTRON */
+
+/* #mainGame {
+  position: relative;
+  z-index: 1;
+  top: 10;
+  height: 45%;
+  width: 45%;
+  color: white;
+  background-color: magenta;
+  margin-left: 28%;
+  margin-top: 23%;
+  margin-bottom: 0px;
+  padding-top: 15px;
+  text-align: center;    
+}
+
+#aboutGame {
+  position: absolute;
+  z-index: 2;
+  height: 45%;
+  width: 45%;
+  color: white;
+  background-color: rgba(4, 56, 25, 0.65);
+  margin-left: 28%;
+  margin-top: 23%;
+  margin-bottom: 0px;
+  padding-top: 15px;
+  text-align: center;    
+} */
+
+.jumbotron {
+  /* position: relative;
+  z-index: 1;
+  top: 10; */
+  height: 50%;
+  width: 45%;
+  color: white;
+  background-color: rgba(4, 56, 25, 0.65);
+  margin: auto;
+  margin-top: 2%;
+  margin-bottom: 0px;  
+  padding-top: 15px;
+  padding-bottom: 1%;
+  text-align: center;    
+}
+
+a.btn.btn-primary.btn-lg {
+    background-color: rgb(93, 203, 218);
+    border: 1px solid #52b152;
+    font-family: 'Neuton', serif;
+    font-weight: 800;
+    font-size: 90%;  
+    color: #043819;
+    height: 13%;
+    width: 25%;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 7px 0px;            
+}
+
+a.btn.btn-primary.btn-lg:hover {
+    background-color: rgb(205, 182, 50);          
+}
+
+ .my-4 { /*this is the horizontal rule in the jumbotron*/
+    border: 1px solid rgb(205, 182, 50);
+    opacity: .5;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+}
+
+
+/* TIMER */
+
+
+
+
+  /* FOOTER */
+
+footer {
+    padding: 30px 0;
+    clear: both;
+    font-size: 12px;
+    color: #fff;
+    color: #ccc;
+    text-align: center;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#83c783+0,52b152+33,008a00+67,005700+100 */
+        background: #83c783; /* Old browsers */
+        background: -moz-linear-gradient(45deg, #83c783 0%, #52b152 33%, #008a00 67%, #005700 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(45deg, #83c783 0%,#52b152 33%,#008a00 67%,#005700 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(45deg, #83c783 0%,#52b152 33%,#008a00 67%,#005700 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#83c783', endColorstr='#005700',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+  
+/* h3, h2 {
+    margin-bottom: 15px;
+    line-height: 22px;
+    border-bottom: 2px solid #eeeeee;
+    padding-top: 20px;
+    padding-bottom: 20px;
+} */
+/* sticky footer */
+/* html,
+body {
+    height: 100%;
+} */
+
+/* .wrapper {
+    height: auto !important;
+    height: 100%;
+    min-height: 100%;
+    margin: 0 auto -105px;
+} */
+
+/* footer,
+.push 
+{
+    height: 105px;
+} */
+/* END FOOTER */
+
+
+/* RESPONSIVENESS */
+/* body {
+    background-color: none;
+}
+    @media only screen and (max-width: 980px) {
+        #logo {
+            width: 80%;        
+        }
+        .noose {
+            height: 40%;
+        }
+        #masthead {
+            height: 30%;            
+        }
+        .input-group-text {
+            border-radius: 10px 10px 0px 0px !important;
+            width: 150px;
+        }    
+        #guessesRemaining {
+            border-radius: 0px 0px 8px 8px;
+            width: 150px;
+            padding: 5px 0px 5px 0px;
+        }
+        #guesses {
+            font-size: 20px;       
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        #logo {
+            width: 90%;        
+        }
+        .noose {
+            height: 40%;
+        }
+        #masthead {
+            height: 30%;       
+        }
+        #gameInfo {
+            margin-left: 15px;
+        } 
+        .input-group-text {
+            border-radius: 10px 10px 0px 0px !important;
+            width: 150px;
+        }  
+        #guessesRemaining {
+            border-radius: 0px 0px 8px 8px;
+            width: 150px;
+            padding: 5px 0px 5px 0px;
+        }
+        #guesses {
+            font-size: 20px;       
+        }
+        .push   
+        {
+            height: 1100px;
+        }
+        h2 {
+            padding-left: 175px;
+            font-size: 24px;
+        }
+    } 
+
+    @media only screen and (max-width: 640px) {
+        #logo {
+            width: 80%;        
+        }
+        .noose {
+            height: 25%;
+        }
+        #masthead {
+            height: 18%;        
+        }
+        #gameInfo {
+            margin-left: 0px;
+        } 
+        .input-group-text {
+            border-radius: 10px 0px 0px 10px !important;
+            margin-bottom: 10px;
+        }    
+        #guessesRemaining {
+            border-radius: 0px 8px 8px 0px;
+            margin-bottom: 10px;
+            width: 115px;        
+        }
+        #guesses {
+            font-size: 20px;       
+        }
+        .push 
+        {
+            height: 1100px;
+        }
+    } */
+
+/* 
+    .jumbotron { */
+        /* height: 200px; */
+        /* background-image: url("../images/jt2.jpg"); */
+        /* color: black; */
+        /* background-color: rgba(248, 243, 85, 0);
+        opacity: .7;
+        margin-top: 50px;
+        margin-left: auto; */
+        /* margin-right:auto; */
+        /* margin-bottom: auto; */
+        /* width: 55%;
+      } */
+    
+      h1 {
+        font-size: 20px;
+        font-weight: 400;
+      }
+    
+
+      
+      
+      /* .main-button-container {
+        max-width: 450px;
+        margin-left: auto;
+      } */
+    
+      #mainArea {
+        margin-top:10px;
+        max-width: 50%;
+        margin-left: auto;
+        color: black;
+        font-size: 26px;
+        height: 500px;;
+      }
+      .timer-p {
+        margin-top: 50px;
+        font-size:24px;
+      }
+      
+      p.text-center {
+        font-size:24px;
+      }
+      .answer:hover {
+        background: rgba(250, 240, 99, 0.99);
+      }
+    
+      p {
+        font-size: 18px;
+        font-weight: 400;
+      }
+      .answer {
+        /* padding-top: 7px; */
+        height: 55px;
+        color: black;
+        padding: 15px;
+        background-color: white;
+        border-radius: 4px;
+        opacity: .7;
+    
+      }
+    
+      img {
+        margin-top: 30px;
+        width:70%;
+        border-radius: 25px;
+        
+      }
+      .img-wrong {
+        border-radius: 25px;
+        margin-top: 40px;
+        width:60%;
+        
+      }
+      
+      .first-answer {
+        margin-top: 40px;
+      }
+      
+      /* .reset-button {
+        margin-top: 40px;
+      } */
+      
+      .summary-correct {
+        margin-top: 40px;
+      }
+      
+      /* body {
+        background-image: url("../images/bg.jpg");
+        background-repeat: no-repeat;
+        background-position: cover;
+        background-size: 100%;
+        color: white;
+        font-size: 20px;
+      } */
+    
