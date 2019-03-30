@@ -140,8 +140,8 @@ var QAobject = [
     var wrongAnswers = ""; //so the computer knows which answers are incorrect for the current question on screen
     var scoreWins = 0; //store points for player's right answers
     var scoreLosses = 0; //store points for player's wrong answers
-    var scoreMissed = 0; //store points for player's missed answers
-    var timer; //30-second countdown timer for each question
+    var scoreMissed = 0; //store points for player's missed answers   
+    var timer = 30; //30-second countdown timer for each question
 
     //     var container = document.getElementById("quizContainer"); //don't think i need this
     // var container = document.getElementById("gameContainer");
@@ -155,6 +155,7 @@ var QAobject = [
     var qCounter = 0;    //for which question is being displayed currently
     var jumbotron = $("#gameContainer");
     var timerStart = 30;
+
 
 // start function
 function start() {
@@ -180,101 +181,68 @@ function start() {
     loadQuestion();
 };
 
-// timer for each question function, 
-function timer() {
+//decrease timer and display it on screen in the timer div
 
-    var timerStart = 30;
-
-    //  Variable that will hold our interval ID when we execute
-    //  the "run" function
-    var intervalId;
-
-    //  When the stop button gets clicked, run the stop function.
-    $("#stop").on("click", stop);
-
-    //  When the resume button gets clicked, execute the run function.
-    $("#resume").on("click", run);
-
-    //  The run function sets an interval
-    //  that runs the decrement function once a second.
-    //  *****BUG FIX******** 
-    //  Clearing the intervalId prior to setting our new intervalId will not allow multiple instances.
-    function run() {
-    clearInterval(intervalId);
-    intervalId = setInterval(decrement, 1000);
+function decrement() {
+    timer--;
+    $("#domTimer").html(timer);
+    // if the timer reaches 0, call noTime()
+    if (timer === 0) {
+    // noTime();
+    console.log("out of time")
     }
-
-    //  The decrement function.
-    function decrement() {
-
-    //  Decrease timerStart by one.
-    timerStart--;
-
-    //  Show the timerStart in the #show-timerStart tag.
-    $("#show-timerStart").html("<h2>" + timerStart + "</h2>");
-
-
-    //  Once timerStart hits zero...
-    if (timerStart === 0) {
-
-    //  ...run the stop function.
-    stop();
-
-    //  Alert the user that time is up.
-    alert("Time Up!");
-    }
-    }
-
-    //  The stop function
-    function stop() {
-
-    //  Clears our intervalId
-    //  We just pass the name of the interval
-    //  to the clearInterval function.
-    clearInterval(intervalId);
-    }
-
-    //  Execute the run function.
-    run();
-
-
-    // setTimeout(thirtySeconds, 1000 * 30);
-    // setTimeout(timeUp, 1000 * 30);
-
-    // function thirtySeconds() {
-    //     // in the element with an id of time-left add an h2 saying About 5 Seconds Left!
-    //     // console log 5 seconds left
-    //     $("#time-left").append("<h2>About 5 Seconds Left!</h2>");
-    //     console.log("5 seconds left");
-    // }
-
-    // function timeUp() {
-    //     // in the element with an id of time-left add an h2 saying Time's Up!
-    //     // console log done
-    //     console.log("done");
-    //     $("#time-left").append("<h2>Time's Up!</h2>");
-    //     console.log("time is up");
-
-    //     console.log("audio", audio.audSkipQuest);
-    //     var sound = new Audio("./assets/audio/whatup-biatch.mp3");
-    //     sound.play();
-    // }
 }
 
 
-//load first question
+//load first question and next question function
 function loadQuestion() {
+    intervalId = setInterval(decrement, 1000);
     $('.domQuestion').text(QAobject[qCounter].question);
     $('.domAnswer1').text(QAobject[qCounter].answers[0]);
     $('.domAnswer2').text(QAobject[qCounter].answers[1]);
     $('.domAnswer3').text(QAobject[qCounter].answers[2]);
     $('.domAnswer4').text(QAobject[qCounter].answers[3]);
-}
+};
 
 
-    // matches player's selection w correct answer function, gifs      
-    // what happens when they have a correct answer?
+    // matches player's selection w correct answer function, gifs   
     // what happens when they have an incorrect answer?
+
+// if the player's answer is correct
+function playerCorrect() {
+    //hide QAcontent to make room for showing gif and feedback
+    $(".QAcontent").hide();
+    $(".answerFeedback").show();
+    clearInterval(intervalId);
+    //update scoreboard
+    scoreWins++
+    $("#wins").text(scoreWins);
+    
+    //notify player of correct answer
+    $(".answerFeedback").append("<h3>Nice job, biatch!</h3>")
+    //add gif
+    $(".answerFeedback").append(QAobject[qCounter].gif)
+    //add sound bite
+    var sound = new Audio("./assets/audio/youre-god-damn-right.mp3");
+    sound.play();    
+
+    if (qCounter < QAobject.length) {
+        //delay set timeout
+        setTimeout(function () {
+            $(".answerFeedback").empty();
+            $(".answerFeedback").hide();
+            $(".QAcontent").show();            
+            qCounter++
+            loadQuestion();
+        } , 3000) 
+    }
+    else {
+        end ();
+    }
+};
+
+
+
 
     // next question button in case they don't want to wait for timer
     // next question, resets timer for next question
@@ -292,24 +260,31 @@ function loadQuestion() {
 
 
     function end() {
-        // reset    
+        // reset 
+        console.log("game")   
     }
 
 
 
 
-    // click events
+    // click event listeners
     $("#startBtn").on('click', function () {
         console.log("clicked");
         start();
+        $(".QAcontent").show();
     });
+
     $(document).on('click', ".answer", function () {
+        
         var playerSelection = $(this).text();
         console.log("player selection", playerSelection);
         if (playerSelection === QAobject[qCounter].correctAnswer) {
             console.log("correct answer");
+            playerCorrect();
 
         } else {
             console.log("wrong answer")
         }
     });
+
+    $(".QAcontent").hide();
